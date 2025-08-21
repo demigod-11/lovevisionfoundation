@@ -199,7 +199,7 @@ function LoveReformComponent() {
     <div className="container mx-auto max-w-6xl px-4">
         
         <div className="absolute inset-0 z-10 flex items-center justify-center" aria-hidden="true">
-            <h2 className="text-[12rem] font-black text-amber-300 opacity-50 md:text-[16rem]">
+            <h2 className="text-[8rem] font-black text-amber-300 opacity-50 md:text-[16rem]">
                 Our Arms
             </h2>
         </div>
