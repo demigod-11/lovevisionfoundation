@@ -1,7 +1,7 @@
 import FooterComponent from "../(shared)/components/footer-component";
 import NavComponent from "../(shared)/components/nav-component";
 import { googleSansFont } from "../(fonts)/fonts.config";
-
+import Image from "next/image";
 
 function AboutUsIntroComponent(){
     return (
@@ -13,7 +13,7 @@ function AboutUsIntroComponent(){
                     </h2>
                     
                     <div className="w-full">
-                    <img 
+                    <Image height={650} width={300} 
                         src="/about-us-banner.jpg" 
                         alt="A group of volunteers posing for a photo" 
                         className="w-full h-auto rounded-3xl shadow-lg object-cover"
@@ -62,7 +62,7 @@ function OurMissionAndVisionComponent(){
   <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
   
     <div className="h-full">
-      <img 
+      <Image height={650} width={300} 
       src="/about-us-what-we-do.jpg" 
         alt="Volunteers interacting with community members" 
         className="w-full h-full rounded-3xl object-cover shadow-lg"
@@ -71,7 +71,7 @@ function OurMissionAndVisionComponent(){
     
     <div className="bg-[#F4D6E7] p-8 md:p-12 rounded-3xl h-full flex flex-col justify-center text-[#AF3D6E]">
       <div className="flex items-center mb-4">
-        <span className="h-3 w-3 bg-[#AF3D6E] rounded-full mr-3"></span>
+        <span className="h-3 w-3 bg-white rounded-full mr-3"></span>
         <p className="text-sm font-semibold tracking-wider uppercase">
           Our Mission & Vision
         </p>
@@ -102,7 +102,7 @@ const Card = ({ imageUrl, title, description }: { imageUrl: string, title: strin
   return (
     <div className="bg-white rounded-3xl p-8  flex flex-col items-start shadow-md">
       <div className="w-24 h-24 mb-6">
-        <img 
+        <Image height={650} width={300} 
           src={imageUrl} 
           alt={title} 
           className="w-full h-full rounded-full object-cover" 
@@ -206,16 +206,22 @@ interface ProfileCardProps {
 // 2. The reusable ProfileCard component
 const ProfileCard: React.FC<ProfileCardProps> = ({ imageUrl, name, role }) => {
   return (
-    <div className="text-left overflow-hidden">
-      <div className="relative w-full aspect-square">
-        <img 
+    <div className="flex h-full flex-col overflow-hidden rounded-3xl text-left">
+      
+      {/* Image container: Explicitly define a fixed height and width for the image here. */}
+      {/* For example, 'h-64 w-64' or 'h-[250px] w-full' (if you want responsive width) */}
+      {/* Let's go with a responsive square that also has a minimum height */}
+      <div className="relative w-full h-0 pb-[100%] min-h-[200px] bg-gray-200"> {/* pb-[100%] makes it a perfect square, min-h ensures it's not too small */}
+        <Image height={650} width={300} 
           src={imageUrl} 
           alt={`Profile of ${name}`}
-          // Makes the image fill the container
-          className="object-cover rounded-3xl" 
+          // These classes ensure the image fills its parent container and is cropped if necessary
+          className="absolute inset-0 h-full w-full object-cover" 
         />
       </div>
-      <div className="bg-[#F6EFF2] p-4 -mt-8 relative rounded-b-3xl">
+
+      {/* Text container (no change needed here for image sizing) */}
+      <div className="relative -mt-8 flex-grow bg-[#F6EFF2] p-4 pt-12">
         <h3 className="font-bold text-gray-800">{name}</h3>
         <p className="text-sm text-gray-600">{role}</p>
       </div>
@@ -228,18 +234,18 @@ function BoardSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/profile-photo.jpg',
+      imageUrl: '/board-1.jpg',
       name: 'Mrs Batel-Meira Imoebe',
-      role: 'LVF Caretaker',
+      role: 'LVF Founder',
     },
     {
-      imageUrl: '/profile-photo.jpg',
+      imageUrl: '/board-2.jpg',
       name: 'Mr Lopez Ukpebor',
       role: 'LVF Coordinator (Africa)',
     },
     {
-      imageUrl: '/profile-photo.jpg',
-      name: 'Miss Precious',
+      imageUrl: '/board-3.jpg',
+      name: 'Mrs Amara Deborah Peter',
       role: 'LVF Secretary',
     },
   ];
@@ -281,24 +287,24 @@ function ExecutivesSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/profile-photo.jpg',
-      name: 'Miss Maureen Amadi',
-      role: 'LVF Caretaker',
+      imageUrl: '/exec-1.jpg',
+      name: 'Mrs Stella Ukpebor',
+      role: 'Love Homes Director',
+    },
+    {
+      imageUrl: '/exec-2.jpg',
+      name: 'Mrs Joy Hart' ,
+      role: 'Love Reform Academics Director ',
+    },
+    {
+      imageUrl: '/exec-3.jpg',
+      name: 'Silvia Onofiok Umoh',
+      role: 'Love Reform Entrepreneur Director',
     },
     {
       imageUrl: '/profile-photo.jpg',
-      name: 'Mr Lopez Ukpebor',
-      role: 'LVF Coordinator (Africa)',
-    },
-    {
-      imageUrl: '/profile-photo.jpg',
-      name: 'Miss Precious',
-      role: 'LVF Secretary',
-    },
-    {
-      imageUrl: '/profile-photo.jpg',
-      name: 'Miss Precious A',
-      role: 'LVF Secretary',
+      name: 'Mr Chika Chinda',
+      role: 'Love Revival Director',
     },
   ];
 
@@ -348,10 +354,6 @@ export default function About(){
             <HowWeWorkComponent />
 
             <BoardSection />
-
-            <h1 className="text-4xl font-bold text-gray-900 mb-12 text-center pt-10 max-md:px-20 lg:px-60">
-                We work hand-in-hand with orphanages, schools, churches, and communities, building partnerships that create lasting change.
-            </h1>
 
             <ExecutivesSection />
 

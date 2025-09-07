@@ -6,20 +6,20 @@ import FooterComponent from '../(shared)/components/footer-component';
 
 function HeroSection() {
   const images = [
-    '/lvf-aboutus-1.png',
-    '/lvf-aboutus-2.png',
-    '/lvf-aboutus-3.png'
+    '/our-arms-hero-1.png',
+    '/our-arms-hero-2.jpg',
+    '/our-arms-hero-3.jpg'
   ];
 
   // An array of rotation classes to apply to each image
   const rotationClasses = ['-rotate-[8deg]', 'rotate-0', 'rotate-[8deg]'];
 
   return (
-    <section className="bg-[#FBF9F6] min-h-screen flex items-center justify-center relative overflow-hidden  pb-12 pt-10">
+    <section className="bg-[#FBF9F6] min-h-screen flex items-center justify-center relative overflow-hidden  pb-6 lg:pb-12 pt-10">
       <div className="w-full max-w-4xl text-center z-10">
         <div className="bg-[#F6EFF2]/50 rounded-full aspect-square w-full max-w-3xl mx-auto p-8 sm:p-16 flex flex-col justify-center items-center">
           
-          <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 leading-tight mb-12 px-4">
+          <h1 className="text-1xl md:text-4xl md:font-semibold text-gray-800 leading-tight mb-12 px-4">
             Love Vision Foundation carries out its mission through three key arms: Love Homes, Love Reform, and Love Revival.
           </h1>
 
@@ -31,7 +31,7 @@ function HeroSection() {
                 className={`w-40 h-32 rounded-2xl overflow-hidden shadow-lg border-4 border-white transform hover:scale-105 hover:z-20 transition-transform ${rotationClasses[index]}`}
                 style={{ zIndex: images.length - index }}
               >
-                <img
+                <Image
                   src={src}
                   alt={`Community initiative ${index + 1}`}
                   width={160}
@@ -46,7 +46,7 @@ function HeroSection() {
         </div>
 
         <div>
-            <h1 className="py-2 text-3xl md:text-4xl font-semibold text-gray-800 leading-tight mb-12 px-4">
+            <h1 className="py-2 text-1xl md:text-4xl md:font-semibold text-gray-800 leading-tight mb-3 px-4">
                 Each arm addresses a unique need, working together to provide care, empowerment, and spiritual growth for children, youth, and families.
             </h1>
         </div>
@@ -74,50 +74,49 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
   description,
   points,
   imageUrl,
-  reverse = false, // Default to false if not provided
+  reverse = false,
 }) => {
   return (
     <section className="bg-[#FBF9F6] py-20 px-6 sm:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* The grid container doesn't need the conditional class */}
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2">
         
-        {/* Text Content Column */}
-        {/* Conditionally apply `lg:order-last` if the reverse prop is true */}
-        <div className={`text-left ${reverse ? 'lg:order-last' : ''}`}>
+        {/* Image Column */}
+        {/* Apply `lg:order-last` here when reverse is true */}
+        <div className={reverse ? 'lg:order-last' : ''}>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lg">
+            <Image height={650} width={300} 
+              src={imageUrl}
+              alt={title}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        
+        {/* Text Content Column (no changes needed) */}
+        <div>
           <div className="flex items-center mb-4">
-            <span className="h-3 w-3 bg-[#8C4A69] rounded-full mr-3"></span>
+            <span className="mr-3 h-3 w-3 rounded-full bg-[#8C4A69]"></span>
             <p className="font-bold text-gray-800">{sectionNumber}</p>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
             {title}
           </h2>
           
-          <p className="text-gray-700 leading-relaxed mb-6">{description}</p>
+          <p className="mb-6 leading-relaxed text-gray-700">{description}</p>
           
-          <ul className="space-y-4 text-gray-700 list-disc list-inside">
+          <ul className="list-inside list-disc space-y-4 text-gray-700">
             {points.map((point, index) => (
               <li key={index}>{point}</li>
             ))}
           </ul>
         </div>
         
-        {/* Image Column */}
-        <div>
-          <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
-            <img 
-              src={imageUrl}
-              alt={title} // Use the title for a descriptive alt tag
-              // fill
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
-        
       </div>
     </section>
   );
 };
-
 
 function FoundationWorkComponent(){
   const supportPoints: string[] = [
@@ -158,20 +157,20 @@ function FoundationWorkComponent(){
           sectionNumber={1} 
           title='Love Homes - Caring for the Needy' 
           description='One of the things we do at Love Vision Foundation is live out scripture daily. According to James 1:27, we are admonished to “look after orphans, widows, and those in distress.” This arm of our organization puts that scripture into action. Through Love Homes:'
-          points={supportPoints} reverse={false} imageUrl='/about-us-what-we-do.jpg' />
+          points={supportPoints} reverse={false} imageUrl='/foundation-1.jpg' />
 
         <FeatureSection 
           sectionNumber={2} 
           title='Love Reform - Transforming Lives Through Knowledge' 
           description='At Love Vision Foundation, we believe that the will of the Father is that all men be saved, not only spiritually, but also through a transformed life. The Bible tells us in Romans 12:2 to “be transformed by the renewing of your mind.” One of the ways we live out this scripture is by ensuring that no one is left idle, because an idle mind, as we know, becomes the devil’s workshop. Through Love Reform, we empower individuals especially youths, to discover and fulfill their God-given potential:'
-          points={supportPoints2} reverse={true} imageUrl='/about-us-what-we-do.jpg' />
+          points={supportPoints2} reverse={true} imageUrl='/foundation-2.jpg' />
 
 
           <FeatureSection 
           sectionNumber={3} 
           title='Love Revival - Awakening Hearts to God’s Love' 
           description='At Love Vision Foundation, we believe that living for God means not only caring for physical needs but also nurturing the spirit. James 1:27b reminds us to “keep oneself from being polluted by the world”, and Romans 12:2 calls us to “be transformed by the renewing of your mind. Through Love Revival, we use every avenue possible to draw young people closer to God:'
-          points={supportPoints3} reverse={false} imageUrl='/about-us-what-we-do.jpg' />
+          points={supportPoints3} reverse={false} imageUrl='/foundation-3.jpg' />
     </section>)
 }
 

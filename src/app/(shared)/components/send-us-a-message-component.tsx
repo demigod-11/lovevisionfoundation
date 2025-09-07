@@ -77,7 +77,7 @@ export function SendUsAMessageFormComponent(){
                 }
 
                 <div className="flex justify-end">
-                <button disabled={disabled} type="submit" className="bg-white text-black font-semibold px-8 py-3 rounded-full hover:bg-gray-200 transition-colors ">
+                <button disabled={disabled} type="submit" className="sm:inline-block w-full md:w-auto bg-white text-black font-semibold px-8 py-3 rounded-full hover:bg-gray-200 transition-colors ">
                     Submit
                 </button>
                 </div>

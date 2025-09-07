@@ -1,28 +1,86 @@
+"use client"
 import { calSansFont, googleSansFont } from "./(fonts)/fonts.config";
 import CardComponent from "./(shared)/components/card-component";
 import NavComponent from "./(shared)/components/nav-component";
 import FooterComponent from "./(shared)/components/footer-component";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 function TopMenuComponent(){
-    return (
-         <section 
-        className="relative flex flex-col h-screen bg-cover bg-center text-white p-8 px-[5%]" 
-        style={{ backgroundImage: 'url(/cover-image.png)' }}
-    >
-        <div className="absolute inset-0 bg-black/40"></div>
-        
-        <NavComponent/>
+    // --- Step 1: Add your image URLs here ---
+    const images = [
+        '/cover-img-1.jpg', // The image of the children
+        '/cover-img-2.jpg', // The image with the hands
+        '/cover-img-3.jpg',  // Add the path to your third image
+        '/cover-img-4.jpg'// Add the path to your fourth image
+    ];
 
-        <div className="relative z-10 flex flex-1 flex-col justify-center items-start text-left md:max-w-[50%]">
-            <h1 className={`mb-8 text-4xl leading-tight md:text-6xl ${calSansFont.className}`}>
-                Raising a new generation through love, learning, and lasting change.
-            </h1>
-            <Link href="#contact-us" className="rounded-full bg-black px-8 py-3 text-sm font-bold text-white border border-black/20 transition-opacity duration-300 hover:opacity-85" scroll={true}>Contact us</Link>
-        </div>
-    </section>
-    )
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // This hook handles the automatic sliding every 8 seconds
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            // Move to the next image, looping back to the start if at the end
+            setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+        }, 5000); // 8000 milliseconds = 8 seconds
+
+        // This cleanup function is important to prevent memory leaks
+        return () => clearInterval(intervalId);
+    }, [images.length]);
+
+    return (
+         <section className="relative flex flex-col h-screen text-white">
+            {/* Container for the background images */}
+            {images.map((image, index) => (
+                <div
+                    key={index}
+                    className={`
+                        absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out
+                        ${index === currentIndex ? 'opacity-100' : 'opacity-0'}
+                    `}
+                    style={{ backgroundImage: `url(${image})` }}
+                />
+            ))}
+            
+            {/* Black Overlay to ensure text is readable */}
+            <div className="absolute inset-0 bg-black/40"></div>
+            
+            {/* All content sits in a relative container on top of the images and overlay */}
+            <div className="relative z-10 flex h-full flex-col p-8 px-[5%]">
+                <NavComponent/>
+
+                {/* Main Content */}
+                <div className="flex flex-1 flex-col items-start justify-center text-left md:max-w-[50%]">
+                    <h1 className={`mb-8 text-4xl leading-tight md:text-6xl ${calSansFont.className}`}>
+                        Raising a new generation through love, learning, and lasting change.
+                    </h1>
+                    {/* This button is now hidden on medium screens and up, as it's handled by the NavComponent */}
+                    <Link 
+                        href="#contact-us" 
+                        className="rounded-full bg-black px-8 py-3 text-sm font-bold text-white transition-opacity duration-300 hover:opacity-85 md:hidden" 
+                        scroll={true}
+                    >
+                        Contact us
+                    </Link>
+                </div>
+
+                {/* Slider Navigation Dots */}
+                <div className="flex items-center justify-center gap-3 pb-4">
+                    {images.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentIndex(index)}
+                            aria-label={`Go to slide ${index + 1}`}
+                            className={`
+                                h-3 w-3 rounded-full transition-colors duration-300 
+                                ${index === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/75'}
+                            `}
+                        />
+                    ))}
+                </div>
+            </div>
+        </section>)
 }
 
 function AboutusComponent(){
@@ -45,12 +103,12 @@ function AboutusComponent(){
                 We&apos;re a faith-driven foundation committed to transforming lives through practical love, meeting real needs, shaping brighter futures, and leading with compassion every step of the way.
             </p>
 
-            <a 
-                href="#" 
+            <Link 
+                href="/about" 
                 className="inline-block rounded-full border border-stone-800 px-8 py-3 font-semibold text-stone-800 transition-colors hover:bg-stone-800 hover:text-white"
             >
                 Read more
-            </a>
+            </Link>
         </div>
 
 
@@ -60,8 +118,8 @@ function AboutusComponent(){
 
             {/* 2. Added explicit size and z-index on hover to each wrapper */}
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
-                <img 
-                    src="/lvf-aboutus-1.png"
+                <Image height={650} width={300} 
+                    src="/lvf-aboutus-1.jpg"
                     alt="Man holding two small children" 
                     
                     // 3. Added a white border for separation
@@ -70,24 +128,24 @@ function AboutusComponent(){
             </div>
 
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
-                <img 
-                    src="/lvf-aboutus-2.png" 
+                <Image height={650} width={300} 
+                    src="/lvf-aboutus-2.jpg" 
                     alt="Group of children with an adult" 
                     className="h-full w-full rounded-2xl object-cover shadow-lg border-4 border-white"
                 />
             </div>
 
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
-                <img 
-                    src="/lvf-aboutus-3.png" 
+                <Image height={650} width={300} 
+                    src="/lvf-aboutus-3.jpg" 
                     alt="Group photo of people in traditional attire" 
                     className="h-full w-full rounded-2xl object-cover shadow-lg border-4 border-white"
                 />
             </div>
 
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
-                <img 
-                    src="/lvf-aboutus-4.png" 
+                <Image height={650} width={300} 
+                    src="/lvf-aboutus-4.jpg" 
                     alt="Woman holding a small child" 
                     className="h-full w-full rounded-2xl object-cover shadow-lg border-4 border-white"
                 />
@@ -151,7 +209,7 @@ function BlogComponent(){
 
                 <div className="flex flex-col overflow-hidden rounded-2xl shadow-lg md:col-span-5 md:flex-row md:min-h-[600px]">
                     <div className="md:w-2/4">
-                        <img src="/lvf-blog-1.png" alt="A choir singing during a concert" className="h-full w-full object-cover"/>
+                        <Image height={650} width={300} src="/lvf-blog-1.png" alt="A choir singing during a concert" className="h-full w-full object-cover"/>
                     </div>
                     <div className="flex flex-col justify-center p-8 md:w-2/4 bg-[#c13f51e1] h-full">
                         <p className="mb-4 inline-block self-start rounded-full border border-white px-3 py-1 text-xs bg-[#c13f51e1] text-white font-bold">LOVE REVIVAL</p>
@@ -162,7 +220,7 @@ function BlogComponent(){
 
                 <div className="flex flex-col overflow-hidden rounded-2xl shadow-lg md:flex-row md:col-span-3">
                     <div className="md:w-2/4">
-                        <img src="/lvf-aboutus-4.png" alt="A woman holding a small child" className="md:h-full w-full object-cover max-sm:max-h-[250px]"/>
+                        <Image height={650} width={300} src="/lvf-aboutus-4.png" alt="A woman holding a small child" className="md:h-full w-full object-cover max-sm:max-h-[250px]"/>
                     </div>
                     <div className="flex flex-col justify-center p-8 md:w-2/4 bg-[#5692a6]">
                        <p className="mb-4 inline-block self-start rounded-full border border-white px-3 py-1 text-xs font-semibold text-blue-100">LOVE REFORM</p>
@@ -172,7 +230,7 @@ function BlogComponent(){
                 </div>
 
                 <div className="overflow-hidden rounded-2xl shadow-lg md:col-span-2">
-                    <img src="/our-arms-2.png" alt="A group photo of community members" className="h-64 w-full object-cover"/>
+                    <Image height={650} width={300} src="/our-arms-2.png" alt="A group photo of community members" className="h-64 w-full object-cover"/>
                     <div className="bg-[#e38c4f] p-8 h-full">
                         <p className="mb-4 inline-block self-start rounded-full border border-black px-3 py-1 text-xs font-semibold text-black">LOVE REFORM</p>
                         <h3 className="mb-4 text-2xl font-bold text-black">Be Part of a Change</h3>
@@ -206,14 +264,12 @@ function LoveReformComponent() {
 
         <div className="relative z-20 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
             
-            
+            <CardComponent title="Love Home" imageUrl="/our-arms-1.jpg" altText="Donated supplies for Love Home" description="Love Home meets the physical and emotional needs of orphans and families by providing essential care, regular support, and lasting partnerships with local homes." addClassNames=""/>
 
-            <CardComponent title="Love Home" imageUrl="/our-arms-1.png" altText="Donated supplies for Love Home" description="Love Home meets the physical and emotional needs of orphans and families by providing essential care, regular support, and lasting partnerships with local homes." addClassNames=""/>
-
-            <CardComponent title="Love Reform" imageUrl="/our-arms-2.png" altText="Donated supplies for Love Home" description="Love Reform equips children and youth with education, skills, and mentorship to help them grow, find direction, and build a stable, independent future." addClassNames=""/>
+            <CardComponent title="Love Reform" imageUrl="/our-arms-2.jpg" altText="Donated supplies for Love Home" description="Love Reform equips children and youth with education, skills, and mentorship to help them grow, find direction, and build a stable, independent future." addClassNames=""/>
 
 
-            <CardComponent title="Love Revival" imageUrl="/our-arms-3.png" altText="Donated supplies for Love Home" description="Love Revival creates spaces for young people to encounter God through worship and fellowship, leading them into a deeper understanding of His love and purpose for their lives." addClassNames=" md:col-span-2 md:justify-self-center md:max-w-xl"/>
+            <CardComponent title="Love Revival" imageUrl="/our-arms-3.jpg" altText="Donated supplies for Love Home" description="Love Revival creates spaces for young people to encounter God through worship and fellowship, leading them into a deeper understanding of His love and purpose for their lives." addClassNames=" md:col-span-2 md:justify-self-center md:max-w-xl"/>
 
 
 
@@ -232,7 +288,7 @@ export default function Home() {
     <AboutusComponent />
     <FoundationWorkComponent />
     <LoveReformComponent />
-    <BlogComponent />
+    {/* <BlogComponent /> */}
     <FooterComponent />
    </div>
   );
