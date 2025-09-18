@@ -98,14 +98,14 @@ function OurMissionAndVisionComponent(){
 }
 
 
-const Card = ({ imageUrl, title, description }: { imageUrl: string, title: string, description: string }) => {
+const Card = ({ imageUrl, title, description, roundedImage }: { imageUrl: string, title: string, description: string, roundedImage?: boolean }) => {
   return (
     <div className="bg-white rounded-3xl p-8  flex flex-col items-start shadow-md">
       <div className="w-24 h-24 mb-6">
         <Image height={650} width={300} 
           src={imageUrl} 
           alt={title} 
-          className="w-full h-full rounded-full object-cover" 
+          className={`${roundedImage ? 'rounded-full' : ''} object-cover`}
         />
       </div>
       <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
@@ -123,12 +123,12 @@ const Card = ({ imageUrl, title, description }: { imageUrl: string, title: strin
       description: 'Caring for the physical and material needs of orphans and families in crisis.',
     },
     {
-      imageUrl: '/our-arms-1.png',
+      imageUrl: '/our-arms-2.png',
       title: 'Love Reform',
       description: 'Empowering through education, skills training, and mentorship.',
     },
     {
-      imageUrl: '/our-arms-1.png',
+      imageUrl: '/our-arms-3.png',
       title: 'Love Revival',
       description: 'Igniting spiritual renewal through worship and community outreach.',
     },
@@ -234,17 +234,17 @@ function BoardSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/board-1.jpg',
+      imageUrl: '/board-1.png',
       name: 'Mrs Batel-Meira Imoebe',
       role: 'LVF Founder',
     },
     {
-      imageUrl: '/board-2.jpg',
+      imageUrl: '/board-2.png',
       name: 'Mr Lopez Ukpebor',
       role: 'LVF Coordinator (Africa)',
     },
     {
-      imageUrl: '/board-3.jpg',
+      imageUrl: '/board-3.png',
       name: 'Mrs Amara Deborah Peter',
       role: 'LVF Secretary',
     },
@@ -287,22 +287,22 @@ function ExecutivesSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/exec-1.jpg',
+      imageUrl: '/exec-1.png',
       name: 'Mrs Stella Ukpebor',
       role: 'Love Homes Director',
     },
     {
-      imageUrl: '/exec-2.jpg',
+      imageUrl: '/exec-2.png',
       name: 'Mrs Joy Hart' ,
       role: 'Love Reform Academics Director ',
     },
     {
-      imageUrl: '/exec-3.jpg',
+      imageUrl: '/exec-3.png',
       name: 'Silvia Onofiok Umoh',
       role: 'Love Reform Entrepreneur Director',
     },
     {
-      imageUrl: '/profile-photo.jpg',
+      imageUrl: '/exec-4.png',
       name: 'Mr Chika Chinda',
       role: 'Love Revival Director',
     },
