@@ -234,17 +234,17 @@ function BoardSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/board-1.png',
+      imageUrl: '/board-1.jpg',
       name: 'Mrs Batel-Meira Imoebe',
       role: 'LVF Founder',
     },
     {
-      imageUrl: '/board-2.png',
+      imageUrl: '/board-2.jpg',
       name: 'Mr Lopez Ukpebor',
       role: 'LVF Coordinator (Africa)',
     },
     {
-      imageUrl: '/board-3.png',
+      imageUrl: '/board-3.jpg',
       name: 'Mrs Amara Deborah Peter',
       role: 'LVF Secretary',
     },
@@ -287,22 +287,22 @@ function ExecutivesSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/exec-1.png',
+      imageUrl: '/exec-1.jpg',
       name: 'Mrs Stella Ukpebor',
       role: 'Love Homes Director',
     },
     {
-      imageUrl: '/exec-2.png',
+      imageUrl: '/exec-2.jpg',
       name: 'Mrs Joy Hart' ,
       role: 'Love Reform Academics Director ',
     },
     {
-      imageUrl: '/exec-3.png',
+      imageUrl: '/exec-3.jpg',
       name: 'Silvia Onofiok Umoh',
       role: 'Love Reform Entrepreneur Director',
     },
     {
-      imageUrl: '/exec-4.png',
+      imageUrl: '/exec-4.jpg',
       name: 'Mr Chika Chinda',
       role: 'Love Revival Director',
     },
