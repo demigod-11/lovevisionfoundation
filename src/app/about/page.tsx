@@ -13,9 +13,12 @@ function AboutUsIntroComponent(){
                     </h2>
                     
                     <div className="w-full">
-                    <Image height={650} width={300} 
-                        src="/about-us-banner.jpg" 
-                        alt="A group of volunteers posing for a photo" 
+                    <Image
+                        width={1920}
+                        height={1281}
+                        sizes="(max-width: 896px) 100vw, 896px"
+                        src="/lvf-aboutus-3.webp"
+                        alt="Community health outreach with volunteers"
                         className="w-full h-auto rounded-3xl shadow-lg object-cover"
                     />
                     </div>
@@ -63,7 +66,7 @@ function OurMissionAndVisionComponent(){
   
     <div className="h-full">
       <Image height={650} width={300} 
-      src="/about-us-what-we-do.jpg" 
+      src="/about-us-what-we-do.webp" 
         alt="Volunteers interacting with community members" 
         className="w-full h-full rounded-3xl object-cover shadow-lg"
       />
@@ -118,17 +121,17 @@ const Card = ({ imageUrl, title, description, roundedImage }: { imageUrl: string
   // Data for the three cards
   const initiatives = [
     {
-      imageUrl: '/our-arms-1.png',
+      imageUrl: '/our-arms-1-icon.webp',
       title: 'Love Homes',
       description: 'Caring for the physical and material needs of orphans and families in crisis.',
     },
     {
-      imageUrl: '/our-arms-2.png',
+      imageUrl: '/our-arms-2-icon.webp',
       title: 'Love Reform',
       description: 'Empowering through education, skills training, and mentorship.',
     },
     {
-      imageUrl: '/our-arms-3.png',
+      imageUrl: '/our-arms-3-icon.webp',
       title: 'Love Revival',
       description: 'Igniting spiritual renewal through worship and community outreach.',
     },
@@ -234,17 +237,17 @@ function BoardSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/board-1.jpg',
+      imageUrl: '/board-1.webp',
       name: 'Mrs Batel-Meira Imoebe',
       role: 'LVF Founder',
     },
     {
-      imageUrl: '/board-2.jpg',
+      imageUrl: '/board-2.webp',
       name: 'Mr Lopez Ukpebor',
       role: 'LVF Coordinator (Africa)',
     },
     {
-      imageUrl: '/board-3.jpg',
+      imageUrl: '/board-3.webp',
       name: 'Mrs Amara Deborah Peter',
       role: 'LVF Secretary',
     },
@@ -287,22 +290,22 @@ function ExecutivesSection() {
   // Data for the board members, matching the ProfileCardProps interface
   const boardMembers: ProfileCardProps[] = [
     {
-      imageUrl: '/exec-1.jpg',
+      imageUrl: '/exec-1.webp',
       name: 'Mrs Stella Ukpebor',
       role: 'Love Homes Director',
     },
     {
-      imageUrl: '/exec-2.jpg',
+      imageUrl: '/exec-2.webp',
       name: 'Mrs Joy Hart' ,
       role: 'Love Reform Academics Director ',
     },
     {
-      imageUrl: '/exec-3.jpg',
+      imageUrl: '/exec-3.webp',
       name: 'Silvia Onofiok Umoh',
       role: 'Love Reform Entrepreneur Director',
     },
     {
-      imageUrl: '/exec-4.jpg',
+      imageUrl: '/exec-4.webp',
       name: 'Mr Chika Chinda',
       role: 'Love Revival Director',
     },

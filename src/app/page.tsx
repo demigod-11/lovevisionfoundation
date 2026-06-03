@@ -10,10 +10,10 @@ import Image from "next/image";
 function TopMenuComponent(){
     // --- Step 1: Add your image URLs here ---
     const images = [
-        '/cover-img-1.jpg', // The image of the children
-        '/cover-img-2.jpg', // The image with the hands
-        '/cover-img-3.jpg',  // Add the path to your third image
-        '/cover-img-4.jpg'// Add the path to your fourth image
+        '/cover-img-1.webp', // The image of the children
+        '/cover-img-2.webp', // The image with the hands
+        '/cover-img-3.webp',  // Add the path to your third image
+        '/cover-img-4.webp'// Add the path to your fourth image
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -119,7 +119,7 @@ function AboutusComponent(){
             {/* 2. Added explicit size and z-index on hover to each wrapper */}
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
                 <Image height={650} width={300} 
-                    src="/lvf-aboutus-1.jpg"
+                    src="/lvf-aboutus-1.webp"
                     alt="Man holding two small children" 
                     
                     // 3. Added a white border for separation
@@ -129,7 +129,7 @@ function AboutusComponent(){
 
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
                 <Image height={650} width={300} 
-                    src="/lvf-aboutus-2.jpg" 
+                    src="/lvf-aboutus-2.webp" 
                     alt="Group of children with an adult" 
                     className="h-full w-full rounded-2xl object-cover shadow-lg border-4 border-white"
                 />
@@ -137,7 +137,7 @@ function AboutusComponent(){
 
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
                 <Image height={650} width={300} 
-                    src="/lvf-aboutus-3.jpg" 
+                    src="/lvf-aboutus-3.webp" 
                     alt="Group photo of people in traditional attire" 
                     className="h-full w-full rounded-2xl object-cover shadow-lg border-4 border-white"
                 />
@@ -145,7 +145,7 @@ function AboutusComponent(){
 
             <div className="w-48 h-64 transform transition-all duration-300 hover:scale-105 hover:z-10">
                 <Image height={650} width={300} 
-                    src="/lvf-aboutus-4.jpg" 
+                    src="/lvf-aboutus-4.webp" 
                     alt="Woman holding a small child" 
                     className="h-full w-full rounded-2xl object-cover shadow-lg border-4 border-white"
                 />
@@ -209,7 +209,7 @@ function BlogComponent(){
 
                 <div className="flex flex-col overflow-hidden rounded-2xl shadow-lg md:col-span-5 md:flex-row md:min-h-[600px]">
                     <div className="md:w-2/4">
-                        <Image height={650} width={300} src="/lvf-blog-1.png" alt="A choir singing during a concert" className="h-full w-full object-cover"/>
+                        <Image height={650} width={300} src="/lvf-blog-1.webp" alt="A choir singing during a concert" className="h-full w-full object-cover"/>
                     </div>
                     <div className="flex flex-col justify-center p-8 md:w-2/4 bg-[#c13f51e1] h-full">
                         <p className="mb-4 inline-block self-start rounded-full border border-white px-3 py-1 text-xs bg-[#c13f51e1] text-white font-bold">LOVE REVIVAL</p>
@@ -220,7 +220,7 @@ function BlogComponent(){
 
                 <div className="flex flex-col overflow-hidden rounded-2xl shadow-lg md:flex-row md:col-span-3">
                     <div className="md:w-2/4">
-                        <Image height={650} width={300} src="/lvf-aboutus-4.png" alt="A woman holding a small child" className="md:h-full w-full object-cover max-sm:max-h-[250px]"/>
+                        <Image height={650} width={300} src="/lvf-aboutus-4.webp" alt="A woman holding a small child" className="md:h-full w-full object-cover max-sm:max-h-[250px]"/>
                     </div>
                     <div className="flex flex-col justify-center p-8 md:w-2/4 bg-[#5692a6]">
                        <p className="mb-4 inline-block self-start rounded-full border border-white px-3 py-1 text-xs font-semibold text-blue-100">LOVE REFORM</p>
@@ -230,7 +230,7 @@ function BlogComponent(){
                 </div>
 
                 <div className="overflow-hidden rounded-2xl shadow-lg md:col-span-2">
-                    <Image height={650} width={300} src="/our-arms-2.png" alt="A group photo of community members" className="h-64 w-full object-cover"/>
+                    <Image height={650} width={300} src="/our-arms-2.webp" alt="A group photo of community members" className="h-64 w-full object-cover"/>
                     <div className="bg-[#e38c4f] p-8 h-full">
                         <p className="mb-4 inline-block self-start rounded-full border border-black px-3 py-1 text-xs font-semibold text-black">LOVE REFORM</p>
                         <h3 className="mb-4 text-2xl font-bold text-black">Be Part of a Change</h3>
@@ -264,12 +264,12 @@ function LoveReformComponent() {
 
         <div className="relative z-20 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
             
-            <CardComponent title="Love Home" imageUrl="/our-arms-1.jpg" altText="Donated supplies for Love Home" description="Love Home meets the physical and emotional needs of orphans and families by providing essential care, regular support, and lasting partnerships with local homes." addClassNames=""/>
+            <CardComponent title="Love Home" imageUrl="/our-arms-1.webp" altText="Donated supplies for Love Home" description="Love Home meets the physical and emotional needs of orphans and families by providing essential care, regular support, and lasting partnerships with local homes." addClassNames=""/>
 
-            <CardComponent title="Love Reform" imageUrl="/our-arms-2.jpg" altText="Donated supplies for Love Home" description="Love Reform equips children and youth with education, skills, and mentorship to help them grow, find direction, and build a stable, independent future." addClassNames=""/>
+            <CardComponent title="Love Reform" imageUrl="/our-arms-2.webp" altText="Donated supplies for Love Home" description="Love Reform equips children and youth with education, skills, and mentorship to help them grow, find direction, and build a stable, independent future." addClassNames=""/>
 
 
-            <CardComponent title="Love Revival" imageUrl="/our-arms-3.jpg" altText="Donated supplies for Love Home" description="Love Revival creates spaces for young people to encounter God through worship and fellowship, leading them into a deeper understanding of His love and purpose for their lives." addClassNames=" md:col-span-2 md:justify-self-center md:max-w-xl"/>
+            <CardComponent title="Love Revival" imageUrl="/our-arms-3.webp" altText="Donated supplies for Love Home" description="Love Revival creates spaces for young people to encounter God through worship and fellowship, leading them into a deeper understanding of His love and purpose for their lives." addClassNames=""/>
 
 
 

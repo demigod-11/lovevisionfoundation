@@ -6,9 +6,9 @@ import FooterComponent from '../(shared)/components/footer-component';
 
 function HeroSection() {
   const images = [
-    '/our-arms-hero-1.png',
-    '/our-arms-hero-2.jpg',
-    '/our-arms-hero-3.jpg'
+    '/our-arms-hero-1.webp',
+    '/our-arms-hero-2.webp',
+    '/our-arms-hero-3.webp'
   ];
 
   // An array of rotation classes to apply to each image
@@ -157,20 +157,20 @@ function FoundationWorkComponent(){
           sectionNumber={1} 
           title='Love Homes - Caring for the Needy' 
           description='One of the things we do at Love Vision Foundation is live out scripture daily. According to James 1:27, we are admonished to “look after orphans, widows, and those in distress.” This arm of our organization puts that scripture into action. Through Love Homes:'
-          points={supportPoints} reverse={false} imageUrl='/foundation-1.jpg' />
+          points={supportPoints} reverse={false} imageUrl='/foundation-1.webp' />
 
         <FeatureSection 
           sectionNumber={2} 
           title='Love Reform - Transforming Lives Through Knowledge' 
           description='At Love Vision Foundation, we believe that the will of the Father is that all men be saved, not only spiritually, but also through a transformed life. The Bible tells us in Romans 12:2 to “be transformed by the renewing of your mind.” One of the ways we live out this scripture is by ensuring that no one is left idle, because an idle mind, as we know, becomes the devil’s workshop. Through Love Reform, we empower individuals especially youths, to discover and fulfill their God-given potential:'
-          points={supportPoints2} reverse={true} imageUrl='/foundation-2.jpg' />
+          points={supportPoints2} reverse={true} imageUrl='/foundation-2.webp' />
 
 
           <FeatureSection 
           sectionNumber={3} 
           title='Love Revival - Awakening Hearts to God’s Love' 
           description='At Love Vision Foundation, we believe that living for God means not only caring for physical needs but also nurturing the spirit. James 1:27b reminds us to “keep oneself from being polluted by the world”, and Romans 12:2 calls us to “be transformed by the renewing of your mind. Through Love Revival, we use every avenue possible to draw young people closer to God:'
-          points={supportPoints3} reverse={false} imageUrl='/foundation-3.jpg' />
+          points={supportPoints3} reverse={false} imageUrl='/foundation-3.webp' />
     </section>)
 }
 
